@@ -1,0 +1,56 @@
+/**index.wxss**/
+.input_style {
+  /**border: 1px solid;**/
+  /**border-radius:2px;**/
+  border: none;
+  border-bottom: 1px solid #000;
+  width: 70%;
+}
+
+.info_item {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  width: 750rpx;
+  flex-direction: row;
+  /*纵向居中对齐*/
+  align-items: center;
+  display: flex;
+  /*justify-content: space-between;*/
+}
+
+.label_item {
+  text-align: justify;
+  text-align-last: justify;
+  width: 20%;
+  display: inline-block;
+  /*justify-content: space-between;*/
+}
+
+.info_btn {
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+}
+
+.page_footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  /*border-top: 1px solid #e8e8e8;*/
+}
+
+.wx-radio-input {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+  /*id选择器*/
+#link_color { 
+color:blue;
+}
+
+ 

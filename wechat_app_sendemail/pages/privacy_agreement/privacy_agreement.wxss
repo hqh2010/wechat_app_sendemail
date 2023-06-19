@@ -1,0 +1,16 @@
+.myOne{
+  width: 100%;
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+}
+.my-div{
+  width: 80%;
+   margin: auto;
+}
+.yhxy{
+  justify-content: center;
+  color: black;
+  font-size: 40rpx;
+  font-weight: 600;
+}
