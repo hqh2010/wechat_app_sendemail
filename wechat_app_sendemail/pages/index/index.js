@@ -15,6 +15,7 @@ Page({
     user_note1: "",
     // 是否同意协议
     is_agree: false,
+    commit_result: "同一用户提交一次即可,请勿重复提交",
 
     // 组件所需的参数
     nvabarData: {
@@ -29,7 +30,7 @@ Page({
       borderColor: 'rgba(255, 255, 255, 0.3)' // 边框颜色 格式为 rgba()，透明度为0.3
     },
     // 此页面 页面内容距最顶部的距离
-  height: app.globalData.systeminfo.statusBarHeight * 2 + 20,
+    height: app.globalData.systeminfo.statusBarHeight * 2 + 20,
   },
 
   // 事件处理函数
@@ -154,7 +155,7 @@ Page({
     if (!utils.isPhoneAvailable(this.data.user_phone)) {
       wx.showModal({
         title: '提示',
-        content: '联系电话格式错误',
+        content: '联系电话格式错误,必须为11位手机号',
         showCancel: false,
         complete: (res) => {
           if (res.confirm) {
@@ -201,22 +202,41 @@ Page({
             title: '提示',
             content: '网络请求失败,请稍后再试!',
             showCancel: false,
-            // complete: (res) => {
-            //  if (res.confirm) {
-            //     console.log('用户点击确定')
-            //    }
-            //  }
+            complete: (res) => {
+              if (res.confirm) {
+                console.log(res.errMsg)
+              }
+            }
           })
           return
         }
         wx.showToast({
-          title: '操作完成,即将退出小程序',
-          duration: 1000
+          title: '提交成功, 感谢反馈',
+          icon: 'success',
+          mask: true,
+          duration: 1500
         })
-        // 提交完成后退出小程序
-        wx.exitMiniProgram()
+        // exitMiniProgram 需要事件触发才能退出
+        setTimeout(function () {
+          // console.log('aaaaaaaa')
+          // 提交完成后退出小程序
+          wx.exitMiniProgram()
+          // console.log('bbbbbbbb')
+        }, 500)
+
+        // 刷新提交结果
+        that.setData({
+          commit_result: that.data.user_phone + " 提交成功"
+        })
+
+        // 提交成功后,清空手机号,防止用户重复提交
+        that.setData({
+          user_phone: ""
+        })
       }
     })
+    //msleep(500)
+    //wx.exitMiniProgram()
   },
 
   onLoad() {

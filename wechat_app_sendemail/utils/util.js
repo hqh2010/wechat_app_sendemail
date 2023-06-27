@@ -21,9 +21,9 @@ const trimStr = str => {
 
 // 校验11位手机号
 const isPhoneAvailable = phone => {
-// 1--以1为开头；
-// 2--第二位可为3,4,5,7,8,中的任意一位；
-// 3--最后以0-9的9个整数结尾
+  // 1--以1为开头；
+  // 2--第二位可为3,4,5,7,8,中的任意一位；
+  // 3--最后以0-9的9个整数结尾
   var myreg = /^[1][3,4,5,7,8][0-9]{9}$/
   if (!myreg.test(phone)) {
     return false
@@ -32,8 +32,20 @@ const isPhoneAvailable = phone => {
   }
 }
 
+const msleep = numberMills => {
+  var now = new Date();
+  var exitTime = now.getTime() + numberMills;
+  while (true) {
+    now = new Date();
+    if (now.getTime() > exitTime) {
+      return;
+    }
+  }
+}
+
 module.exports = {
   formatTime,
   trimStr,
-  isPhoneAvailable
+  isPhoneAvailable,
+  msleep
 }

@@ -1,47 +1,47 @@
 <!-- 自定义导航栏 -->
 <headerNavbar navbar-data='{{nvabarData}}'></headerNavbar>
 <view class="container">
-  <view  class="info_item" style="margin-top: 50rpx;">
-    <label class ="label_item">姓名</label>:
-    <input  class = 'input_style' bindinput="nameInput"  placeholder='请填写您的真实姓名' value = '{{user_name}}'></input>
+  <view class="info_item" style="margin-top: 50rpx;">
+    <label class="label_item">姓名</label>:
+    <input class='input_style' bindinput="nameInput" placeholder='请填写您的真实姓名' value='{{user_name}}'></input>
   </view>
 
   <view class="info_item" style="margin-top: 50rpx;">
-    <label class ="label_item">住址</label>:
-    <input class = 'input_style' bindinput="addrInput" placeholder='请填写您的现居地址' value='{{user_addr}}'></input>
+    <label class="label_item">住址</label>:
+    <input class='input_style' bindinput="addrInput" placeholder='请填写您的现居地址' value='{{user_addr}}'></input>
   </view>
-  <view class="info_item"style="color:white;margin-top: 50rpx;">
-    <label class ="label_item"></label>:
-    <input class = 'input_style' style="color:black;" bindinput="addr1Input"  placeholder='住址请具体到小区' value='{{user_addr1}}'></input>
+  <view class="info_item" style="color:white;margin-top: 50rpx;">
+    <label class="label_item"></label>:
+    <input class='input_style' style="color:black;" bindinput="addr1Input" placeholder='住址请具体到小区' value='{{user_addr1}}'></input>
   </view>
   <view class="info_item" style="margin-top: 50rpx;">
-    <label class ="label_item" style="white-space: nowrap;">联系电话</label>:
-    <input class = 'input_style' bindinput="phoneInput" placeholder='请填写您的联系方式'   value='{{user_phone}}'></input>
+    <label class="label_item" style="white-space: nowrap;">联系电话</label>:
+    <input class='input_style' bindinput="phoneInput" placeholder='请填写您的联系方式(手机号)' value='{{user_phone}}'></input>
   </view>
 
   <view class="info_item" style="margin-top: 50rpx;">
-    <label class ="label_item">备注信息</label>:
-    <input class = 'input_style'class = 'input_style' bindinput="noteInput" placeholder='请填写您的备注信息'   value='{{user_note }}'></input>
+    <label class="label_item">备注信息</label>:
+    <input class='input_style' class='input_style' bindinput="noteInput" placeholder='请填写您的备注信息' value='{{user_note }}'></input>
   </view>
-  <view class="info_item"style="color:white;margin-top: 50rpx;">
-    <label class ="label_item"></label>:
-    <input class = 'input_style' style="color:black;" bindinput="note1Input"  placeholder='备注要求售后的项目及时间' value='{{user_note1}}'></input>
+  <view class="info_item" style="color:white;margin-top: 50rpx;">
+    <label class="label_item"></label>:
+    <input class='input_style' style="color:black;" bindinput="note1Input" placeholder='备注要求售后的项目及时间' value='{{user_note1}}'></input>
   </view>
   <!--用户隐私保护协议-->
-<view class="info_item" style="transform: scale(0.9); margin-top: 50rpx;">
-  <radio  checked='{{is_agree }}' bindtap="radioChange" > </radio>
-  <view>
-  <text>我同意授权本程序使用我提交的信息用于产品售后服务,已阅读并同意</text>
-  <text  bindtap="goUserPage" id ="link_color">《用户服务协议》</text>
-  <text>及</text>
-  <text  bindtap = "goPrivacyPage" id ="link_color">《隐私政策》</text>
-</view>
-</view>
-  <view   class = "info_btn" style="margin-top: 100rpx; width:100%;">
-    <button  disabled= '{{!is_agree }}' bindtap="postEmail" name="commit_btn" class = "weui-btn_primary">提交</button>
-  </view>
-
-      <view class = "page_footer">
-        <label style="color: darkgrey;">Copyright © 2023 hqh</label>
+  <view class="info_item" style="transform: scale(0.9); margin-top: 50rpx;">
+    <radio checked='{{is_agree }}' bindtap="radioChange"> </radio>
+    <view>
+      <text>我同意授权本程序使用我提交的信息用于产品售后服务,已阅读并同意</text>
+      <text bindtap="goUserPage" id="link_color">《用户服务协议》</text>
+      <text>及</text>
+      <text bindtap="goPrivacyPage" id="link_color">《隐私政策》</text>
     </view>
+  </view>
+  <view class="info_btn" style="margin-top: 100rpx; width:100%;">
+    <button disabled='{{!is_agree }}' bindtap="postEmail" name="commit_btn" class="weui-btn_primary">提交</button>
+  </view>
+  <label class="info_btn" style="margin-top: 10rpx;color:darkgrey;width:100%;">{{commit_result}}</label>
+  <view class="page_footer">
+    <label style="color: darkgrey;">Copyright © 2023 hqh</label>
+  </view>
 </view>
